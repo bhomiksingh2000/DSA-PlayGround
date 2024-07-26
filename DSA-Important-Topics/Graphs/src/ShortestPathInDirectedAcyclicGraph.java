@@ -87,17 +87,7 @@ public class ShortestPathInDirectedAcyclicGraph {
     }
 }
 
-/*
-In a Directed Acyclic Graph (DAG) with weighted edges, Breadth-First Search (BFS)
-is not suitable for finding the shortest path because BFS is designed for unweighted graphs.
-In a weighted graph, edges have different costs, and BFS does not account for
-varying edge weights, which can lead to incorrect results.
 
-Instead, for a DAG, you can use Topological Sorting combined with Dynamic Programming to
-find the shortest path. Here’s how you can implement it:
-
-
- */
 /*
 https://takeuforward.org/data-structure/shortest-path-in-directed-acyclic-graph-topological-sort-g-27/#
 
@@ -110,6 +100,49 @@ that can precede it which reduces the computation time significantly. In this ap
 Dijkstra's algorithm is necessary for graphs that can contain cycles because they can't be
 topologically sorted. In other cases, the topological sort would work fine as we start from
 the first node, and then move on to the others in a directed manner.
+
+TOPOLOGICAL SORT ONLY WORKS FOR DIRECTED GRAPHS
  */
+
+       /*
+This problem, can be solved through BFS too.But there will be too many redundancies in it.
+We start from source=0, it relaxes its adjacents, and pushes these adjacent nodes along with
+their distances into the queue.
+Then these adjacent nodes will further relax their adjacent nodes and push the relaxed nodes.
+
+Consider this graph: first of pair is the adjacent node and second of pair is the edge weight
+
+1->[(2,2), (3,1)]
+2->(4,2)
+3->(5,1)
+5->(4,1)
+4->(6,1)
+
+Final queue will be like - (first of pair is the node and second of pair is the distance
+ from source to this node)
+(1,0)(2,2)(3,1)(4,4)(5 2)(6 5)(4 3)(6 4)
+These all will be popped out when they relax their adjacent nodes.
+For ex, (1,0) will be popped out before (2,2)(3,1) are pushed into queue and so on.
+
+As we can see, there is redundancy, node 4 first came in the queue with a
+distance of 4 from source, and then again
+node 4 came with a distance of 3 from the source, which increases time
+complexity, because, now (4,3) will have to again relax its adjacent nodes
+to reduce the distances of its adjacent nodes.
+
+So, if the pre-requisites of any node(say, cur) are relaxed as minimum
+ as possible before the relaxation of node cur.Then redundancy will never occur.
+Taking the same example as above, if 1 2 3 5 are relaxed as minimum
+as possible before the relaxation of node 4. Then redundancy will never occur.
+
+The solution to the above observation is Topological sort.
+If we have Topo sort sequence, then we will take the source node first and relax
+its adjacent nodes.After that, we take next node
+in the topo sort, and will do the same.
+
+TC - O(N+E)
+SC-O(N)
+*/
+
 
 

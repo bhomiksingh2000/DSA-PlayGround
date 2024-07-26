@@ -86,3 +86,17 @@ public class ShortestPathInDirectedAcyclicGraph {
         return distance;
     }
 }
+
+/*
+https://takeuforward.org/data-structure/shortest-path-in-directed-acyclic-graph-topological-sort-g-27/#
+
+Finding the shortest path to a vertex is easy if you already know the shortest paths
+to all the vertices that can precede it. Processing the vertices in topological order
+ensures that by the time you get to a vertex, you've already processed all the vertices
+that can precede it which reduces the computation time significantly. In this approach,
+ we traverse the nodes sequentially according to their reachability from the source.
+
+Dijkstra's algorithm is necessary for graphs that can contain cycles because they can't be
+topologically sorted. In other cases, the topological sort would work fine as we start from
+the first node, and then move on to the others in a directed manner.
+ */

@@ -88,6 +88,17 @@ public class ShortestPathInDirectedAcyclicGraph {
 }
 
 /*
+In a Directed Acyclic Graph (DAG) with weighted edges, Breadth-First Search (BFS)
+is not suitable for finding the shortest path because BFS is designed for unweighted graphs.
+In a weighted graph, edges have different costs, and BFS does not account for
+varying edge weights, which can lead to incorrect results.
+
+Instead, for a DAG, you can use Topological Sorting combined with Dynamic Programming to
+find the shortest path. Here’s how you can implement it:
+
+
+ */
+/*
 https://takeuforward.org/data-structure/shortest-path-in-directed-acyclic-graph-topological-sort-g-27/#
 
 Finding the shortest path to a vertex is easy if you already know the shortest paths
@@ -100,3 +111,5 @@ Dijkstra's algorithm is necessary for graphs that can contain cycles because the
 topologically sorted. In other cases, the topological sort would work fine as we start from
 the first node, and then move on to the others in a directed manner.
  */
+
+

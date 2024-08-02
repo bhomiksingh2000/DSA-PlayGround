@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/LeetCodeDailyChallenge/Aug2024/Aug2024.iml" filepath="$PROJECT_DIR$/LeetCodeDailyChallenge/Aug2024/Aug2024.iml" />
       <module fileurl="file://$PROJECT_DIR$/StriverSdeSheet/BinarySearch/BinarySearch.iml" filepath="$PROJECT_DIR$/StriverSdeSheet/BinarySearch/BinarySearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSA-Important-Topics/DSA-Important-Topics.iml" filepath="$PROJECT_DIR$/DSA-Important-Topics/DSA-Important-Topics.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSA-PlayGround.iml" filepath="$PROJECT_DIR$/DSA-PlayGround.iml" />
